@@ -1,0 +1,27 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+@Html.DropDownList("Sortby", new SelectListItem[]
+{
+     new SelectListItem() { Text = "Выберите вариант", Value = "0" },
+     new SelectListItem() { Text = "Вариант 1", Value = "1" },
+     new SelectListItem() { Text = "Вариант 2", Value = "2" },
+     new SelectListItem() { Text = "Вариант 3", Value = "3" },
+     new SelectListItem() { Text = "Вариант 4", Value = "4" },
+     new SelectListItem() { Text = "Вариант 5", Value = "5" }},
+     new
+     {
+         @onchange = "CallChangefunc(this.value)"
+})
+
+<div id="content" />
+
+<script>
+    function CallChangefunc(val) {
+        $("#content").load("/Test/_TestPartial?variant=" + val);       
+    }
+</script>
+

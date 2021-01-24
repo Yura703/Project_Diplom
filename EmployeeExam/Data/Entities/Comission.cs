@@ -30,12 +30,5 @@ namespace EmployeeExam.Data.Entities
         public string Name { get; set; }
     }
 
-    public class TestQuest//вопрос из обучения
-    {
-        public int numberAnswer { get; set; } = 0; //порядковый номер вопроса
-        public int allAnswer { get; set; } = 1;    //всего вопросов данного варианта
-        public int posAnswer { get; set; } = 0;    //количество верных ответов  
-        public int variant { get; set; } = 0;
-       
-    }
+   
 }

@@ -35,6 +35,17 @@ namespace EmployeeExam.Data.Entities
         [Required]
         [Range(1, 50, ErrorMessage = "Недопустимый номер")]
         [Display(Name = "Номер варианта")]
-        public int Var { get; set; }       
+        public int Var { get; set; }
+
+        [Required]
+        [Display(Name = "Справка по вопросу")]
+        public string Reference { get; set; }
+    }
+
+    public class TestQuest : Question                               //вопрос из обучения
+    {
+        public int numberAnswer { get; set; } = 1; //порядковый номер вопроса
+        public int allAnswer { get; set; } = 1;    //всего вопросов данного варианта
+        public int posAnswer { get; set; } = 0;    //количество верных ответов    
     }
 }
