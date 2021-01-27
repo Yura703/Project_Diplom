@@ -20,10 +20,10 @@
     .margin {
         margin-left: 10em;
     }
-    .font_medium    {
-        font-size:medium
-    }  
-    
+
+    .font_medium {
+        font-size: medium
+    }
 </style>
 
 <div class="test-other">
@@ -47,9 +47,9 @@
 
 <hr />
 
-<form asp-action="_TestPartial" asp-controller="Test" method="get">
+@*<form asp-action="_TestPartial" asp-controller="Test" method="get">*@
 
-    <label class = "font_medium badge badge-light text-wrap border border-primary form-check-label">@Html.DisplayFor(modelItem => quest.Quest)</label>
+    <label class="font_medium badge badge-light text-wrap border border-primary form-check-label">@Html.DisplayFor(modelItem => quest.Quest)</label>
 
     <div class="form-check">
         <input class="form-check-input" type="radio" name="answer" id="Radios1" value="1" checked>
@@ -75,10 +75,10 @@
     @*<button type="button" class="btn btn-outline-info" onclick="check()">Проверить</button>*@
     <button type="button" class="btn btn-outline-info" id="button">Проверить</button>
 
-    <button type="submit" class="btn btn-primary" onclick="CallChangefunc()">Продолжить</button>
+    <button type="button" class="btn btn-primary" onclick="CallChangefunc()">Продолжить</button>
     @*<button type="submit" class="btn btn-primary" onclick="check()" new { @CallChangefunc(this.value)>Ответить</button>*@
 
-</form>
+@*</form>*@
 
 <script>
     let btn = document.querySelector("#button");
@@ -91,6 +91,7 @@
         if (rad["@quest.Answer"].checked) {
             document.querySelector("#_answer").className = "font_medium badge badge-success text-wrap";
             document.querySelector("#_answer").innerHTML = "Верный ответ";
+            quest.posAnswer++;
         }
         else {
             document.querySelector("#_answer").className = "font_medium badge badge-danger text-wrap";
@@ -100,21 +101,28 @@
 </script>
 
 
-<script>
-    function check() {
-        //var as = '<div class="ds">Текст текст</div><div class="sdf12">Текст текст</div>';
-        $("#_answer").load("<h1>sssssss<h1/>");
-    }
-</script>
+@*<script>
+        function check() {
+            //var as = '<div class="ds">Текст текст</div><div class="sdf12">Текст текст</div>';
+            $("#_answer").load("<h1>sssssss<h1/>");
+        }
+    </script>*@
 
 <div id="content" />
 
 <script>
     function CallChangefunc() {
-        $("#content").load("/Test/_TestPartial?quest.numberAnswer=" + quest.numberAnswer + "$quest.allAnswer" + quest.allAnswer + "$quest.variant" + quest.variant + "$quest.posAnswer" + quest.posAnswer);
+        $("#content").load("/Test/_TestPartial?quest.numberAnswer=" + quest.numberAnswer + "&quest.allAnswer" + quest.allAnswer + "&quest.Var" + quest.Var + "&quest.posAnswer" + quest.posAnswer);
+
         //window.location.href = "/Test/_TestPartial?value=" + val;
     }
 </script>
 
 
+      
+      @*!!!!!!!!!!!!!!!!!!!В функциях не видны переменные из представления - строки 91, 94, 115*@
+       
+  
+       
+    
 

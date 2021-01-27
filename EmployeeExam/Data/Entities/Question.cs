@@ -42,10 +42,17 @@ namespace EmployeeExam.Data.Entities
         public string Reference { get; set; }
     }
 
-    public class TestQuest : Question                               //вопрос из обучения
+    public class TestQuest                              //вопрос из обучения
     {
         public int numberAnswer { get; set; } = 1; //порядковый номер вопроса
         public int allAnswer { get; set; } = 1;    //всего вопросов данного варианта
         public int posAnswer { get; set; } = 0;    //количество верных ответов    
+        public string Quest { get; set; }
+        public string Variant1 { get; set; }
+        public string Variant2 { get; set; }
+        public string Variant3 { get; set; }
+        public byte Answer { get; set; }
+        public int Var { get; set; }
+        public string Reference { get; set; }
     }
 }

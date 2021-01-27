@@ -1,0 +1,35 @@
+﻿@model EmployeeExam.Data.Entities.Employee
+
+@{
+
+}
+
+<form asp-action="_ExamPartial" asp-controller="Test" method="get">
+    <div class="input-group mb-3">
+        <input asp-for="Tabel_id" class="form-control col-3" placeholder="Введите табельный номер" aria-label="Табельный номер" aria-describedby="basic-addon2" width="100">
+        <span asp-validation-for="Tabel_id" class="text-danger"></span>
+        <div class="input-group-append">
+            <button class="btn btn-outline-secondary" type="submit" id="button">Начать экзамен</button>
+        </div>
+    </div>
+</form>
+
+@await Html.PartialAsync("_ErrorTabel")
+
+@*<div id="content" />
+    <button onclick="CallChangefunc()">aa</button>
+
+    <script>
+        function CallChangefunc() {
+            $("#content").text("aaaaaaaaaaaaaaa");
+        }
+
+    </script>*@
+
+
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -24,6 +24,8 @@ namespace EmployeeExam.Data.Entities
 
         public int Questions_4 { get; set; }
 
+        public int Variant { get; set; }
+
         public virtual Question Question { get; set; }
 
         public virtual Question Question1 { get; set; }

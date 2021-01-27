@@ -1,0 +1,48 @@
+﻿@model EmployeeExam.Data.Entities.Question
+@{
+    Question quest = (Question)ViewData["TestExam"];
+
+}
+
+<h2>Вариант № @ViewData["Variant"] - @ViewData["Title"] - @ViewData["FIO"] </h2>
+<h2>Билет № @ViewData["NumTest"] Вопрос №  @ViewData["NumTicket"]</h2>
+
+<label class="font_medium badge badge-light text-wrap border border-primary form-check-label">@Html.DisplayFor(modelItem => quest.Quest)</label>
+
+<div class="form-check">
+    <input class="form-check-input" type="radio" name="answer" id="Radios1" value="1" checked>
+    <label class="font_medium badge badge-light text-wrap border border-info form-check-label text-justify" for="Radios1">
+        @Html.DisplayFor(odelItem => quest.Variant1)
+    </label>
+</div>
+
+<div class="form-check">
+    <input class="form-check-input" type="radio" name="answer" id="Radios2" value="2">
+    <label class="font_medium badge badge-light text-wrap border border-info form-check-label text-justify" for="Radios2">
+        @Html.DisplayFor(odelItem => quest.Variant2)
+    </label>
+</div>
+
+<div class="form-check">
+    <input class="form-check-input" type="radio" name="answer" id="Radios3" value="3">
+    <label class="font_medium badge badge-light text-wrap border border-info form-check-label text-justify" for="Radios3">
+        @Html.DisplayFor(odelItem => quest.Variant3)
+    </label>
+</div>
+
+<button type="button" class="btn btn-primary" onclick="CallChangefunc()">Продолжить</button>
+@*<button type="submit" class="btn btn-primary" onclick="check()" new { @CallChangefunc(this.value)>Ответить</button>*@
+
+<div id="content" />
+
+<script>
+    function check() {
+        var val = $('input[name=answer]:checked').val();
+    }
+    
+    function CallChangefunc(val) {
+        $("#content").load("/Test/_ExamPartial?answer=" + val);
+    }
+</script>
+
+
