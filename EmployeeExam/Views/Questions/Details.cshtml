@@ -1,0 +1,60 @@
+﻿@model EmployeeExam.Data.Entities.Question
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Question</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Quest)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Quest)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Variant1)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Variant1)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Variant2)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Variant2)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Variant3)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Variant3)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Answer)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Answer)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Var)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Var)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Reference)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Reference)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Questions_id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

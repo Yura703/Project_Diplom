@@ -6,6 +6,7 @@
     <title>@ViewData["Title"] - EmployeeExam</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
+
 </head>
 <body>
     <header>
@@ -27,18 +28,52 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Test" asp-action="Exam">Экзамен</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Questions" asp-action="Index">Вопросы</a>
+                        </li>
+                        <li class="dropdown nav-item">
+                            <a id="drop1" class="nav-link text-dark dropdown-toggle" data-toggle="dropdown" href="#">Ввод данных</a>
+                            <ul class="dropdown-menu">
+                                <li><a asp-area="" asp-controller="Questions" asp-action="Index">Вопросы</a></li>
+                                <li><a asp-area="" asp-controller="Employees" asp-action="Create">Сотрудники</a></li>
+                                <li><a asp-area="" asp-controller="Questions" asp-action="Index">Комиссии</a></li>
+                                <li><a asp-area="" asp-controller="Dapartments" asp-action="Index">Подразделения</a></li>
+                                <li><a asp-area="" asp-controller="Titles" asp-action="Index">Специальности</a></li>                                
+                                <li class="divider"></li>
+                                <li><a href="#">Составление билетов</a></li>
+                                <li><a href="#">Текст подпункта</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown nav-item">
+                            <a id="drop1" class="nav-link text-dark dropdown-toggle" data-toggle="dropdown" href="#">Статистика</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Вопросы</a></li>
+                                <li><a href="#">Сотрудники</a></li>
+                                <li><a href="#">Комиссии</a></li>
+                                <li class="divider"></li>
+                                <li><a href="#">Составление билетов</a></li>
+                                <li><a href="#">Текст подпункта</a></li>
+                            </ul>
+                        </li>
                     </ul>
                     <partial name="_LoginPartial" />
                 </div>
             </div>
         </nav>
+        @*<script>
+            $('#topheader .navbar-nav a').on('click', function () {
+                $('#topheader .navbar-nav').find('li.active').removeClass('active');
+                $(this).parent('li').addClass('active');
+            });//выделение цветом при наведении мыши и при активной ссылке
+        </script>*@
+       
     </header>
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
-
+    
     <footer class="border-top footer text-muted">
         <div class="container">
             &copy; 2021 - EmployeeExam - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>

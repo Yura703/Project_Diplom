@@ -35,13 +35,10 @@
 
 <div id="content" />
 
-<script>
-    function check() {
-        var val = $('input[name=answer]:checked').val();
-    }
+<script>    
     
-    function CallChangefunc(val) {
-        $("#content").load("/Test/_ExamPartial?answer=" + val);
+    function CallChangefunc() {
+        $("#content").load("/Test/_ExamPartial?answer=" + 1);
     }
 </script>
 

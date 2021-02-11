@@ -87,8 +87,8 @@
 
     btn.addEventListener("click", () => {
         document.querySelector("#reference").innerHTML = "@quest.Reference";
-
-        if (rad["@quest.Answer"].checked) {
+        var a =@quest.numberAnswer;
+        if (rad[a].checked) {
             document.querySelector("#_answer").className = "font_medium badge badge-success text-wrap";
             document.querySelector("#_answer").innerHTML = "Верный ответ";
             quest.posAnswer++;
@@ -108,6 +108,7 @@
         }
     </script>*@
 
+
 <div id="content" />
 
 <script>
@@ -115,6 +116,7 @@
         $("#content").load("/Test/_TestPartial?quest.numberAnswer=" + quest.numberAnswer + "&quest.allAnswer" + quest.allAnswer + "&quest.Var" + quest.Var + "&quest.posAnswer" + quest.posAnswer);
 
         //window.location.href = "/Test/_TestPartial?value=" + val;
+        var a =@quest.numberAnswer;
     }
 </script>
 

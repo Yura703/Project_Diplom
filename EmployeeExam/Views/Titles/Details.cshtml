@@ -1,0 +1,42 @@
+﻿@model EmployeeExam.Data.Entities.Title
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Title</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.title_name)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.title_name)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.var_id)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.var_id)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.gr_security)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.gr_security)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.interval)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.interval)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.title_id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

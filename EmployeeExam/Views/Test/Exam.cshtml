@@ -4,27 +4,53 @@
 
 }
 
-<form asp-action="_ExamPartial" asp-controller="Test" method="get">
-    <div class="input-group mb-3">
-        <input asp-for="Tabel_id" class="form-control col-3" placeholder="Введите табельный номер" aria-label="Табельный номер" aria-describedby="basic-addon2" width="100">
-        <span asp-validation-for="Tabel_id" class="text-danger"></span>
-        <div class="input-group-append">
-            <button class="btn btn-outline-secondary" type="submit" id="button">Начать экзамен</button>
-        </div>
+<form asp-action="_exampartial" asp-controller="test" method="get" onsubmit="changeAction(this);">
+<div class="input-group mb-3">
+    <input name="Tabel" asp-for="Tabel_id" class="form-control col-3" placeholder="Введите табельный номер" aria-label="Табельный номер" aria-describedby="basic-addon2" width="100">
+    <span asp-validation-for="Tabel_id" class="text-danger"></span>
+    <div class="input-group-append">
+        <button class="btn btn-outline-secondary" type="submit" id="button" onclick="CallChangefunc()">Начать экзамен</button>
     </div>
+</div>
 </form>
 
 @await Html.PartialAsync("_ErrorTabel")
+@*@await Html.PartialAsync("_ExamPartial")*@
 
 @*<div id="content" />
-    <button onclick="CallChangefunc()">aa</button>
+    <button onclick="callchangefunc()">aa</button>
 
     <script>
-        function CallChangefunc() {
+        function callchangefunc() {
             $("#content").text("aaaaaaaaaaaaaaa");
         }
 
     </script>*@
+<div id="content" />
+
+<script>
+    //var _tabel = document.getElementById("Tabel").value;
+    $("form").submit(function (e) {
+        e.preventDefault();
+        var queryString = $(this).serialize();
+
+        url = this.getAttribute("action") + "123";
+        //location.href = url;
+        location.href = "11/22/33";
+    })
+   
+
+    //let input = document.querySelector('input');
+    //var _log = input.value;
+    //console._log;
+    //function CallChangefunc(_log) {
+    //    //    $("#content").load("/Test/_ExamPartial?Tabel_id=" + _log);
+    //    //function changeAction(form) {
+    //    //    //form.action = "example.com";
+    //    console._log;
+       
+    //}
+</script>
 
 
 
