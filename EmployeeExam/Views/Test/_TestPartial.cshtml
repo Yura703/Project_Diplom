@@ -87,11 +87,19 @@
 
     btn.addEventListener("click", () => {
         document.querySelector("#reference").innerHTML = "@quest.Reference";
-        var a =@quest.numberAnswer;
-        if (rad[a].checked) {
+        var a =@quest.Answer;
+
+        let writeRb;
+        for (let i = 0; i < rad.length; ++i) {
+            if (rad[i].value == a) {
+                writeRb = rad[i];
+            }
+        }       
+        if (writeRb.checked) {
+
             document.querySelector("#_answer").className = "font_medium badge badge-success text-wrap";
             document.querySelector("#_answer").innerHTML = "Верный ответ";
-            quest.posAnswer++;
+            @{quest.posAnswer++; }
         }
         else {
             document.querySelector("#_answer").className = "font_medium badge badge-danger text-wrap";
@@ -113,10 +121,20 @@
 
 <script>
     function CallChangefunc() {
-        $("#content").load("/Test/_TestPartial?quest.numberAnswer=" + quest.numberAnswer + "&quest.allAnswer" + quest.allAnswer + "&quest.Var" + quest.Var + "&quest.posAnswer" + quest.posAnswer);
+        var numberAnswer = @quest.numberAnswer;
+        var allAnswer = @quest.allAnswer;
+        var variant = @quest.Var;
+        var posAnswer = @quest.posAnswer;
+        @*$("#content").load("/Test/_TestPartial?quest.numberAnswer=" + quest.numberAnswer + "&quest.allAnswer" + quest.allAnswer + "&quest.Var" + quest.Var + "&quest.posAnswer" + quest.posAnswer);*@
+         //$("#content").load("/Test/_TestPartial?numberAnswer=" + numberAnswer + "&allAnswer=" + allAnswer + "&variant=" + variant + "&posAnswer=" + posAnswer);
+
+        $("#content").load("/Test/_TestPartial?quest.numberAnswer=" + numberAnswer + "&quest.allAnswer=" + allAnswer + "&quest.Var=" + variant + "&quest.posAnswer=" + posAnswer);
+
+
+
 
         //window.location.href = "/Test/_TestPartial?value=" + val;
-        var a =@quest.numberAnswer;
+        //var a =@quest.numberAnswer;
     }
 </script>
 

@@ -12,7 +12,7 @@ namespace EmployeeExam.Controllers
     public class TestController : Controller
     {
         private readonly ApplicationDbContext _context;
-
+       
 
         public TestController(ApplicationDbContext context)
         {
@@ -24,6 +24,7 @@ namespace EmployeeExam.Controllers
             return View();
         }
 
+        //public ActionResult _TestPartial(string variant, int numberAnswer, int allAnswer, int posAnswer)
         public ActionResult _TestPartial(string variant, TestQuest quest)
         {
             TestQuest _quest = new TestQuest();
@@ -50,10 +51,10 @@ namespace EmployeeExam.Controllers
 
             else
             {
-                _quest = quest;
-                _quest.numberAnswer++;
+                _quest = quest;               
                 if (_quest.allAnswer <= _quest.numberAnswer) _quest.numberAnswer = 0;
-                var qst = _context.Questions.Where(d => d.Var == _quest.Var).ToList()[_quest.numberAnswer];
+                _quest.numberAnswer++;
+                var qst = _context.Questions.Where(d => d.Var == _quest.Var).ToList()[_quest.numberAnswer-1];
 
                 _quest.Quest = qst.Quest;
                 _quest.Variant1 = qst.Variant1;
