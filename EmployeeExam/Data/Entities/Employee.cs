@@ -14,7 +14,7 @@ namespace EmployeeExam.Data.Entities
             WrongAnswers = new HashSet<WrongAnswer>();
         }
 
-        [Key]        
+        [Key]
         public int Employee_id { get; set; }
 
         [Required]
@@ -59,5 +59,23 @@ namespace EmployeeExam.Data.Entities
 
         public virtual ICollection<WrongAnswer> WrongAnswers { get; set; }
     }
+
+    public class TempEmployee
+    {
+        [Display(Name = "Табельный номер")]
+        public int Tabel_id { get; set; }
+        [Display(Name = "ФИО")]
+        public string FIO { get; set; }
+        [Display(Name = "Дата последней сдачи экзамена")]
+        public DateTime? Date { get; set; }       
+        [Display(Name = "Подразделение")]
+        public string dep_id { get; set; }
+        [Display(Name = "Должность")]
+        public string title_id { get; set; } 
+        [Display(Name = "Номер комиссии")]
+        public int? NamberComission { get; set; }
+        [Display(Name = "Примечание")]
+        public string Notes { get; set; } = "";
+    } 
 }
 

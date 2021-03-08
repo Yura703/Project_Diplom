@@ -2,12 +2,13 @@
 
 @{
     ViewData["Title"] = "Index";
+    string head;
 }
 
-<h1>Index</h1>
+<h1>Структурные подразделения</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create">Создать</a>
 </p>
 <table class="table">
     <thead>
@@ -34,7 +35,9 @@
                 @Html.DisplayFor(modelItem => item.dep_abvr)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Head)
+                @{ if (item.Head == true) head = "Действует"; }
+                @{else head = "Не действует"; }
+                @head
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.dep_id">Edit</a> |

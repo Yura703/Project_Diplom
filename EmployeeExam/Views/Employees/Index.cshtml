@@ -19,18 +19,6 @@
                 @Html.DisplayNameFor(model => model.FIO)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Date)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Notes)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.passed)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.need_print)
-            </th>
-            <th>
                 @Html.DisplayNameFor(model => model.dep_id)
             </th>
             <th>
@@ -39,6 +27,18 @@
             <th>
                 @Html.DisplayNameFor(model => model.NamberComission)
             </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Notes)
+            </th>
+            @*<th>
+            @Html.DisplayNameFor(model => model.passed)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.need_print)
+        </th>*@
             <th></th>
         </tr>
     </thead>
@@ -52,18 +52,6 @@
                 @Html.DisplayFor(modelItem => item.FIO)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Date)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Notes)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.passed)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.need_print)
-            </td>
-            <td>
                 @Html.DisplayFor(modelItem => item.dep_id)
             </td>
             <td>
@@ -72,6 +60,18 @@
             <td>
                 @Html.DisplayFor(modelItem => item.NamberComission)
             </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Notes)
+            </td>
+            @*<td>
+            @Html.DisplayFor(modelItem => item.passed)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.need_print)
+        </td>*@
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Employee_id">Edit</a> |
                 <a asp-action="Details" asp-route-id="@item.Employee_id">Details</a> |

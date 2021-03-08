@@ -1,34 +1,5 @@
-﻿@model IEnumerable<EmployeeExam.Data.Entities.Employee>
-
-
-<table class="table" width="100%" cellspacing="0" border="1">
-    <thead>
-        <tr>            
-            <th>
-                @Html.DisplayNameFor(model => model.FIO)
-            </th>  
-            <th>
-                @Html.DisplayNameFor(model => model.dep_id)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.title_id)
-            </th>            
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>            
-            <td>
-                @Html.DisplayFor(modelItem => item.FIO)
-            </td>           
-            <td>
-                @Html.DisplayFor(modelItem => item.dep_id)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.title_id)
-            </td> 
-        </tr>
-}
-    </tbody>
-</table>
+﻿<h3>Для вывода протокола экзаменов по охране труда, нажмите на кнопку "Вывести протокол"</h3>
+<h4>Протоколы формируются в соответствии с номерами комиссий, для вывода следующего протокола, повторите действия заново."</h4>
+<form asp-action="Protocol"> 
+    <button type="submit">Вывести протокол</button>
+</form>

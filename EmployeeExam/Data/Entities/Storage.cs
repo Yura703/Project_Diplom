@@ -18,6 +18,8 @@ namespace EmployeeExam.Data.Entities
 
         public DateTime Data_Quest { get; set; }
 
+        public bool Result { get; set; }
+
         public virtual Employee Employee { get; set; }
 
         public virtual Test Test { get; set; }

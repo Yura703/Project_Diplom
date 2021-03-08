@@ -11,16 +11,23 @@ namespace EmployeeExam.Data.Entities
         [Key]
         public int Comission_id { get; set; }
 
+        [Display(Name = "Номер комиссии")]
         public int NamberComission { get; set; }
 
         [Required]
         [StringLength(50)]
+        [Display(Name = "ФИО")]
         public string FIO { get; set; }
 
+        [Display(Name = "Действующий")]
         public bool Head { get; set; }
+
+        [Display(Name = "Роль")]
+        public string Role { get; set; }
 
         [Required]
         [StringLength(50)]
+        [Display(Name = "Должность")]
         public string Description { get; set; }
     }
 

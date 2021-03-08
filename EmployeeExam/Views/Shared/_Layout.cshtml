@@ -6,17 +6,34 @@
     <title>@ViewData["Title"] - EmployeeExam</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
+    <style>
+        TABLE {
+            width: 300px; /* Ширина таблицы */
+            border-collapse: collapse; /* Убираем двойные линии между ячейками */
+        }
 
+        TD, TH {
+            vertical-align: middle;
+            text-align: center; 
+            padding: 3px; /* Поля вокруг содержимого таблицы */
+            border: 1px solid black; /* Параметры рамки */
+        }
+
+        TH {
+            background: #b0e0e6; /* Цвет фона */
+        }
+    </style>
+    
 </head>
 <body>
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">EmployeeExam</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+               
+                @*<button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+                    <span class="navbar-toggler-icon">xxxxxxxxxx</span>
+                aaaaaaa</button>*@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
@@ -32,27 +49,23 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="Protocol" asp-action="Index">Протокол</a>
                         </li>
                         <li class="dropdown nav-item">
-                            <a id="drop1" class="nav-link text-dark dropdown-toggle" data-toggle="dropdown" href="#">Ввод данных</a>
+                            <a id="drop1" class="nav-link text-dark dropdown-toggle" data-toggle="dropdown" href="#">Данные</a>
                             <ul class="dropdown-menu">
-                                <li><a asp-area="" asp-controller="Questions" asp-action="Index">Вопросы</a></li>
-                                <li><a asp-area="" asp-controller="Employees" asp-action="Create">Сотрудники</a></li>
-                                <li><a asp-area="" asp-controller="Questions" asp-action="Index">Комиссии</a></li>
-                                <li><a asp-area="" asp-controller="Dapartments" asp-action="Index">Подразделения</a></li>
-                                <li><a asp-area="" asp-controller="Titles" asp-action="Index">Специальности</a></li>                                
+                                <li><a asp-area="" asp-controller="Employees" asp-action="Index" class="text-dark">Сотрудники</a></li>
+                                <li><a asp-area="" asp-controller="Comissions" asp-action="Index" class="text-dark">Комиссии</a></li>
+                                <li><a asp-area="" asp-controller="Departments" asp-action="Index" class="text-dark">Подразделения</a></li>
+                                <li><a asp-area="" asp-controller="Titles" asp-action="Index" class="text-dark">Должности</a></li>
                                 <li class="divider"></li>
-                                <li><a href="#">Составление билетов</a></li>
-                                <li><a href="#">Текст подпункта</a></li>
+                                <li><a asp-area="" asp-controller="Questions" asp-action="Index" class="text-dark">Вопросы</a></li>
+                                <li><a asp-area="" asp-controller="Ticket" asp-action="Index" class="text-dark">Билеты</a></li>
+
                             </ul>
                         </li>
                         <li class="dropdown nav-item">
                             <a id="drop1" class="nav-link text-dark dropdown-toggle" data-toggle="dropdown" href="#">Статистика</a>
                             <ul class="dropdown-menu">
-                                <li><a asp-area="" asp-controller="Debtor" asp-action="Index">Сдающие экзамен</a></li>
-                                <li><a href="#">Сотрудники</a></li>
-                                <li><a href="#">Комиссии</a></li>
-                                <li class="divider"></li>
-                                <li><a href="#">Составление билетов</a></li>
-                                <li><a href="#">Текст подпункта</a></li>
+                                <li><a asp-area="" asp-controller="Debtor" asp-action="Index" class="text-dark">Сдающие экзамен</a></li>
+                                <li class="divider"></li>                                
                             </ul>
                         </li>
                     </ul>

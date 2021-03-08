@@ -19,5 +19,6 @@ namespace EmployeeExam.Data
         public DbSet<Department> Departments { get; set; }
         public DbSet<Title> Titles { get; set; }
         public DbSet<Test> Tests { get; set; }
+        public DbSet<Comission> Comissions { get; set; }
     }
 }

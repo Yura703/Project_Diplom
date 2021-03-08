@@ -1,0 +1,54 @@
+﻿@model EmployeeExam.Data.Entities.Test
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Детализация</h1>
+
+<div>
+    <h4>Билет</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.NumberTicket)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.NumberTicket)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Questions_1)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Questions_1)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Questions_2)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Questions_2)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Questions_3)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Questions_3)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Questions_4)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Questions_4)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Variant)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Variant)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Tests_id">Edit</a> |
+    <a asp-action="Index">К списку</a>
+</div>

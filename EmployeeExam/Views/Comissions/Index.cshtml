@@ -1,0 +1,65 @@
+﻿@model IEnumerable<EmployeeExam.Data.Entities.Comission>
+
+@{
+    ViewData["Title"] = "Index";
+    string role, head;
+}
+
+<h1>Комиссии</h1>
+
+<p>
+    <a asp-action="Create">Создать нового члена комиссии</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th class="text-center">
+                @Html.DisplayNameFor(model => model.NamberComission)
+            </th>
+            <th class="text-center">
+                @Html.DisplayNameFor(model => model.FIO)
+            </th>
+            <th class="text-center">
+                @Html.DisplayNameFor(model => model.Head)
+            </th>
+            <th class="text-center">
+                @Html.DisplayNameFor(model => model.Role)
+            </th>
+            <th class="text-center">
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model)
+{
+        <tr>
+            <td class="text-center">
+                @Html.DisplayFor(modelItem => item.NamberComission)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FIO)
+            </td>
+            <td>
+                @{ if (item.Head == true) head = "Действует"; }
+                @{else head = "Не действует"; }
+                @head              
+            </td>
+            <td>
+                @{ if (item.Role == "pred") role = "Председатель"; }
+                @{else role = "Член комиссии"; }
+                @role               
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Comission_id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Comission_id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Comission_id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

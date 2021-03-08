@@ -1,0 +1,119 @@
+﻿@model IEnumerable<EmployeeExam.Data.Entities.TempEmployee>
+@{
+    Layout = null;
+    Comission pred = (Comission)ViewData["predsedat"];
+    List<Comission> member = (List<Comission>)ViewData["member"];
+    int num = 1;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Protocol</title>
+</head>
+<body>
+
+    <p class="ConsPlusTitle" align="center">ПРОТОКОЛ</p>
+    <p class="ConsPlusTitle" align="center">проверки знаний по вопросам охраны труда №____</p>
+    <p class="ConsPlusNonformat">"___" _____________ ____ г.</p>
+
+
+    <p class="ConsPlusNonformat">Комиссия в составе:</p>
+    <p>
+        <h5>председатель комиссии: @pred.Description - @pred.FIO ;</h5>
+    </p>
+    <p>
+        <h5>
+            члены комиссии:
+            @foreach (var item in member)
+            {
+                <h5>@item.Description  - @item.FIO</h5>
+            }
+        </h5>
+    </p>
+
+
+    <p class="ConsPlusNonformat">Провела проверку знаний по вопросам охраны труда:</p>
+
+
+
+
+    <table class="table" width="100%" cellspacing="0" border="1">
+        <thead>
+            <tr>
+                <th>
+                    № <br> п/п
+                </th>
+                <th>
+                    ФИО лица, <br>проходящего проверку знаний
+                </th>
+                <th>
+                    Профессия рабочего, <br>должность служащего или отдельный вид работ (услуг) лица, проходящего проверку, наименование организации (индивидуальный предприниматель, вид деятельности)
+                </th>
+                <th>
+                    Подразделение
+                </th>
+                <th>
+                    Вид проверки знаний
+                </th>
+                <th>
+                    Результаты проверки знаний (прошел, не прошел)
+                </th>
+                <th>
+                    Роспись лица, проходившего проверку знаний по вопросам охраны труда
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @(num++)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FIO)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.title_id)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.dep_id)
+                    </td>
+                    <td>
+                        Очередная
+                    </td>
+                    <td>
+                        Прошел
+                    </td>
+                    <td>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <p>
+        <h5>председатель комиссии: <br />_____________________ @pred.FIO ;</h5>
+    </p>
+    <p>
+        <h5>
+            <div >
+                члены комиссии:
+                @foreach (var item in member)
+                {
+                    <h5>_____________________ @item.FIO</h5>
+                }
+            </div>
+        </h5>
+    </p>
+
+</body>
+</html>
+
+
+
+

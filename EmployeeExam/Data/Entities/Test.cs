@@ -16,15 +16,23 @@ namespace EmployeeExam.Data.Entities
         [Key]
         public int Tests_id { get; set; }
 
+        [Display(Name = "Вопрос №1")]
         public int Questions_1 { get; set; }
 
+        [Display(Name = "Вопрос №2")]
         public int Questions_2 { get; set; }
 
+        [Display(Name = "Вопрос №3")]
         public int Questions_3 { get; set; }
 
+        [Display(Name = "Вопрос №4")]
         public int Questions_4 { get; set; }
 
+        [Display(Name = "Вариант")]
         public int Variant { get; set; }
+
+        [Display(Name = "Номер билета")]
+        public int NumberTicket { get; set; }
 
         public virtual Question Question { get; set; }
 
