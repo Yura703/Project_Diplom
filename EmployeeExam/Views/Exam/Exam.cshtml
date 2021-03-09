@@ -1,0 +1,56 @@
+﻿@model EmployeeExam.Data.Entities.Question
+@{
+    Question quest = (Question)ViewData["TestExam"];
+    int ss = (int)ViewData["NumTicket"] + 1;
+    int dd = (int)ViewData["NumTest"] + 1;
+    int otvet = (int)quest.Answer;
+}
+
+
+<h4 class="text-primary">Вариант № @ViewData["Variant"] - @ViewData["Title"] - @ViewData["FIO"] </h4>
+<h4 class="text-primary">Билет № @dd Вопрос № @ss </h4>
+
+<hr />
+<div class="h3">
+    <label>@Html.DisplayFor(modelItem => quest.Quest)</label>
+</div>
+
+<hr />
+<form asp-action="Examen" asp-controller="Exam" method="get">
+    <div class="form-check h3">
+        <input class="form-check-input" type="radio" name="answer" id="Radios1" value="1" checked>
+        <label for="Radios1">
+            @Html.DisplayFor(odelItem => quest.Variant1)
+        </label>
+    </div>
+
+    <hr />
+
+    <div class="form-check h3">
+        <input class="form-check-input" type="radio" name="answer" id="Radios2" value="2">
+        <label for="Radios2">
+            @Html.DisplayFor(odelItem => quest.Variant2)
+        </label>
+    </div>
+
+    <hr />
+
+    <div class="form-check h3">
+        <input class="form-check-input" type="radio" name="answer" id="Radios3" value="3">
+        <label for="Radios3">
+            @Html.DisplayFor(odelItem => quest.Variant3)
+        </label>
+    </div>
+    <hr />
+    <h5>@quest.Answer</h5>
+    @Html.Hidden("Tabel_id", ViewData["Tabel_id"])
+    @Html.Hidden("NumTicket", ss)
+    @Html.Hidden("NumTest", ViewData["NumTest"])
+    @*@Html.Hidden("answerQuest", otvet)*@
+    @Html.Hidden("Quest_id", quest.Questions_id)
+    @Html.Hidden("test_id", ViewData["test_id"])
+
+    <button type="submit" class="btn btn-primary">Продолжить</button>
+</form>
+
+

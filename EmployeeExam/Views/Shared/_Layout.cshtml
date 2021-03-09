@@ -43,7 +43,13 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="Test" asp-action="Index">Обучение</a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Training" asp-action="Index">Обучен</a>
+                        </li>
+                        @*<li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Test" asp-action="Exam">Экзамен</a>
+                        </li>*@
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Exam" asp-action="Index">Экзамен</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Protocol" asp-action="Index">Протокол</a>
@@ -65,7 +71,7 @@
                             <a id="drop1" class="nav-link text-dark dropdown-toggle" data-toggle="dropdown" href="#">Статистика</a>
                             <ul class="dropdown-menu">
                                 <li><a asp-area="" asp-controller="Debtor" asp-action="Index" class="text-dark">Сдающие экзамен</a></li>
-                                <li class="divider"></li>                                
+                                <li class="divider"></li>
                             </ul>
                         </li>
                     </ul>

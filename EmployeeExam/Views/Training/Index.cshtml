@@ -1,0 +1,15 @@
+﻿@model EmployeeExam.Data.Entities.Question
+
+<form asp-action="Training" asp-controller="Training" method="get">
+    <div class="input-group mb-3">
+        <input name="Var" asp-for="Var" class="form-control col-3" placeholder="Введите номер варианта" aria-label="Табельный номер" aria-describedby="basic-addon2" width="100">
+        <span asp-validation-for="Var" class="text-danger"></span>
+        <div class="input-group-append">
+            <button class="btn btn-outline-secondary" type="submit" id="button">Начать обучение</button>
+        </div>
+    </div>
+</form>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

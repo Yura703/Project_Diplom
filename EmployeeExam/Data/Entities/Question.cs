@@ -13,7 +13,7 @@ namespace EmployeeExam.Data.Entities
 
         [Required]
         [Display(Name = "Вопрос")]
-        public string Quest { get; set; }//-----------------------------------
+        public string Quest { get; set; }
 
         [Required]
         [Display(Name = "Ответ №1")]
