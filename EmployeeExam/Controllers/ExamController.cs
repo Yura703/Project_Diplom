@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using EmployeeExam.Data;
 using EmployeeExam.Data.Entities;
+using Microsoft.AspNetCore.Authorization;
 
 namespace EmployeeExam.Controllers
 {
@@ -20,6 +21,7 @@ namespace EmployeeExam.Controllers
         }
 
         // GET: Exam
+        //[Authorize]
         public async Task<IActionResult> Index()
         {     
             return View();
@@ -58,15 +60,17 @@ namespace EmployeeExam.Controllers
             return View();
         }
 
-        public async Task<IActionResult> Examen(int answer, int Tabel_id, int NumTicket, int NumTest, int test_id, int Quest_id)
+        public async Task<IActionResult> Examen(int answer, int Tabel_id, int NumTicket, int NumTest, int test_id, int Quest_id, int answerQuest)
         {
             //_context.Questions.Where(r => r.Questions_id == Quest_id).First().Answer;
-            if (answer != _context.Questions.Where(r => r.Questions_id == Quest_id).First().Answer)
+            if (answer != answerQuest)
             {
+                UpdateNeg(Tabel_id, NumTest);
                 return View("Error", "Экзамен завершен. Ответ не верный. Удачи в следующий раз.");
             }
 
-            if (NumTicket > 3) {
+            if (NumTicket >= 3) {
+                UpdatePos(Tabel_id, NumTest);
                 return View("Error", "Экзамен сдан");
             }
 
@@ -77,26 +81,45 @@ namespace EmployeeExam.Controllers
             ViewData["Title"] = title.title_name;
             ViewData["Variant"] = title.var_id;
             ViewData["NumTest"] = NumTest;
-            ViewData["NumTicket"] = NumTicket;
+            int tt = NumTicket + 1;
+            ViewData["NumTicket"] = tt;
             ViewData["test_id"] = test_id;
             
             var quests = _context.Tests.Where(d => d.Tests_id == test_id).First(); 
-            switch (NumTicket)
+            switch (tt)
             {
-                case 0:
+                case 1:
                     ViewData["TestExam"] = _context.Questions.Where(d => d.Questions_id == quests.Questions_2).First();
                     break;
-                case 1:
+                case 2:
                     ViewData["TestExam"] = _context.Questions.Where(d => d.Questions_id == quests.Questions_3).First();
                     break;
-                case 2:
+                case 3:
                     ViewData["TestExam"] = _context.Questions.Where(d => d.Questions_id == quests.Questions_4).First();
                     break;
             }
             return View("Exam");
-
-
-
         }
+
+        public async void UpdatePos(int Tabel_id, int NumTest)
+        {
+            var employee = _context.Employees.Where(d => d.Tabel_id == Tabel_id).First();
+            employee.Date = DateTime.Today;
+            employee.need_print = true;
+            _context.Update(employee);             
+            await _context.SaveChangesAsync();
+        }
+
+        public async void UpdateNeg(int Tabel_id, int NumTest)
+        {
+            Storage storage = new Storage();
+            storage.Result = false;
+            storage.Tabel_id = Tabel_id;
+            storage.Tests_id = NumTest;
+            storage.Data_Quest = DateTime.Today;
+            _context.Add(storage);
+            await _context.SaveChangesAsync();
+        }
+
     }
 }

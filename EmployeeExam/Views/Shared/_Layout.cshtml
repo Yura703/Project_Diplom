@@ -6,6 +6,7 @@
     <title>@ViewData["Title"] - EmployeeExam</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
+
     <style>
         TABLE {
             width: 300px; /* Ширина таблицы */
@@ -14,7 +15,7 @@
 
         TD, TH {
             vertical-align: middle;
-            text-align: center; 
+            text-align: center;
             padding: 3px; /* Поля вокруг содержимого таблицы */
             border: 1px solid black; /* Параметры рамки */
         }
@@ -23,17 +24,18 @@
             background: #b0e0e6; /* Цвет фона */
         }
     </style>
-    
+    <script src="https://unpkg.com/vue"></script>
+
 </head>
 <body>
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container">
-               
+
                 @*<button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon">xxxxxxxxxx</span>
-                aaaaaaa</button>*@
+                            aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon">xxxxxxxxxx</span>
+                    aaaaaaa</button>*@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
@@ -46,8 +48,8 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="Training" asp-action="Index">Обучен</a>
                         </li>
                         @*<li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Test" asp-action="Exam">Экзамен</a>
-                        </li>*@
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Test" asp-action="Exam">Экзамен</a>
+                            </li>*@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Exam" asp-action="Index">Экзамен</a>
                         </li>
@@ -80,19 +82,19 @@
             </div>
         </nav>
         @*<script>
-            $('#topheader .navbar-nav a').on('click', function () {
-                $('#topheader .navbar-nav').find('li.active').removeClass('active');
-                $(this).parent('li').addClass('active');
-            });//выделение цветом при наведении мыши и при активной ссылке
-        </script>*@
-       
+                $('#topheader .navbar-nav a').on('click', function () {
+                    $('#topheader .navbar-nav').find('li.active').removeClass('active');
+                    $(this).parent('li').addClass('active');
+                });//выделение цветом при наведении мыши и при активной ссылке
+            </script>*@
+
     </header>
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
-    
+
     <footer class="border-top footer text-muted">
         <div class="container">
             &copy; 2021 - EmployeeExam - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
@@ -101,6 +103,7 @@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+   
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

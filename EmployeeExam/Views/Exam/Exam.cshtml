@@ -43,12 +43,13 @@
     </div>
     <hr />
     <h5>@quest.Answer</h5>
-    @Html.Hidden("Tabel_id", ViewData["Tabel_id"])
-    @Html.Hidden("NumTicket", ss)
-    @Html.Hidden("NumTest", ViewData["NumTest"])
-    @*@Html.Hidden("answerQuest", otvet)*@
-    @Html.Hidden("Quest_id", quest.Questions_id)
-    @Html.Hidden("test_id", ViewData["test_id"])
+
+    @Html.Hidden("Tabel_id", (int)ViewData["Tabel_id"])
+    <input name="NumTicket" type="hidden" value=@ViewData["NumTicket"] />
+    @Html.Hidden("NumTest", (int)ViewData["NumTest"])
+    <input name="answerQuest" type="hidden" value=@quest.Answer />
+    @Html.Hidden("Quest_id", (int)quest.Questions_id)
+    @Html.Hidden("test_id", (int)ViewData["test_id"])
 
     <button type="submit" class="btn btn-primary">Продолжить</button>
 </form>
