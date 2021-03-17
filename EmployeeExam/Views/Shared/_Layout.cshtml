@@ -50,33 +50,36 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Training" asp-action="Index">Обучение</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Exam" asp-action="Index">Экзамен</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Protocol" asp-action="Index">Протокол</a>
-                        </li>
-                        <li class="dropdown nav-item">
-                            <a id="drop1" class="nav-link text-dark dropdown-toggle" data-toggle="dropdown" href="#">Данные</a>
-                            <ul class="dropdown-menu">
-                                <li><a asp-area="" asp-controller="Employees" asp-action="Index" class="text-dark">Сотрудники</a></li>
-                                <li><a asp-area="" asp-controller="Comissions" asp-action="Index" class="text-dark">Комиссии</a></li>
-                                <li><a asp-area="" asp-controller="Departments" asp-action="Index" class="text-dark">Подразделения</a></li>
-                                <li><a asp-area="" asp-controller="Titles" asp-action="Index" class="text-dark">Должности</a></li>
-                                <li class="divider"></li>
-                                <li><a asp-area="" asp-controller="Questions" asp-action="Index" class="text-dark">Вопросы</a></li>
-                                <li><a asp-area="" asp-controller="Ticket" asp-action="Index" class="text-dark">Билеты</a></li>
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Exam" asp-action="Index">Экзамен</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Protocol" asp-action="Index">Протокол</a>
+                            </li>
+                            <li class="dropdown nav-item">
+                                <a id="drop1" class="nav-link text-dark dropdown-toggle" data-toggle="dropdown" href="#">Данные</a>
+                                <ul class="dropdown-menu">
+                                    <li><a asp-area="" asp-controller="Employees" asp-action="Index" class="text-dark">Сотрудники</a></li>
+                                    <li><a asp-area="" asp-controller="Comissions" asp-action="Index" class="text-dark">Комиссии</a></li>
+                                    <li><a asp-area="" asp-controller="Departments" asp-action="Index" class="text-dark">Подразделения</a></li>
+                                    <li><a asp-area="" asp-controller="Titles" asp-action="Index" class="text-dark">Должности</a></li>
+                                    <li class="divider"></li>
+                                    <li><a asp-area="" asp-controller="Questions" asp-action="Index" class="text-dark">Вопросы</a></li>
+                                    <li><a asp-area="" asp-controller="Ticket" asp-action="Index" class="text-dark">Билеты</a></li>
 
-                            </ul>
-                        </li>
-                        <li class="dropdown nav-item">
-                            <a id="drop1" class="nav-link text-dark dropdown-toggle" data-toggle="dropdown" href="#">Статистика</a>
-                            <ul class="dropdown-menu">
-                                <li><a asp-area="" asp-controller="Debtor" asp-action="Index" class="text-dark">Сдающие экзамен</a></li>
-                                <li class="divider"></li>
-                            </ul>
-                        </li>
-                    </ul>
+                                </ul>
+                            </li>
+                            <li class="dropdown nav-item">
+                                <a id="drop1" class="nav-link text-dark dropdown-toggle" data-toggle="dropdown" href="#">Статистика</a>
+                                <ul class="dropdown-menu">
+                                    <li><a asp-area="" asp-controller="Debtor" asp-action="Index" class="text-dark">Сдающие экзамен</a></li>
+                                    <li class="divider"></li>
+                                </ul>
+                            </li>
+                        }
+                        </ul>
                     <partial name="_LoginPartial" />
                 </div>
             </div>

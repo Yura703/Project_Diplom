@@ -1,5 +1,6 @@
 ﻿using EmployeeExam.Data;
 using EmployeeExam.Data.Entities;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -22,6 +23,7 @@ namespace EmployeeExam.Controllers
             return View();
         }
 
+        [Authorize]
         public IActionResult Dept(DateTime data)
         {
             var employee = _context.Employees.ToList();

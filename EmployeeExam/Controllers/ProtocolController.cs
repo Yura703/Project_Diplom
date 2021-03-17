@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using EmployeeExam.Data;
 using EmployeeExam.Data.Entities;
+using Microsoft.AspNetCore.Authorization;
 
 namespace EmployeeExam.Controllers
 {
@@ -31,6 +32,7 @@ namespace EmployeeExam.Controllers
             }           
         }
 
+        [Authorize]
         public  IActionResult Protocol()
         {
             var employee = _context.Employees.Where(d => d.need_print == true);

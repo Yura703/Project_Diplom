@@ -21,13 +21,13 @@ namespace EmployeeExam.Controllers
         }
 
         // GET: Exam
-        //[Authorize]
+        [Authorize]
         public async Task<IActionResult> Index()
         {     
             return View();
         }
 
-       
+        [Authorize]
         public async Task<IActionResult> Exam(int Tabel_id)
         {
             if (_context.Employees.Where(d => d.Tabel_id == Tabel_id).Count() == 0)
@@ -60,6 +60,7 @@ namespace EmployeeExam.Controllers
             return View();
         }
 
+        [Authorize]
         public async Task<IActionResult> Examen(int answer, int Tabel_id, int NumTicket, int NumTest, int test_id, int Quest_id, int answerQuest)
         {
             //_context.Questions.Where(r => r.Questions_id == Quest_id).First().Answer;

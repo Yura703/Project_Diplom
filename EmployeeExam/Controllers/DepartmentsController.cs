@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using EmployeeExam.Data;
 using EmployeeExam.Data.Entities;
+using Microsoft.AspNetCore.Authorization;
 
 namespace EmployeeExam.Controllers
 {
@@ -44,6 +45,7 @@ namespace EmployeeExam.Controllers
         }
 
         // GET: Departments/Create
+        [Authorize]
         public IActionResult Create()
         {
             return View();
@@ -54,6 +56,7 @@ namespace EmployeeExam.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public async Task<IActionResult> Create([Bind("dep_id,dep_name,dep_abvr,Head")] Department department)
         {
             if (ModelState.IsValid)
@@ -66,6 +69,7 @@ namespace EmployeeExam.Controllers
         }
 
         // GET: Departments/Edit/5
+        [Authorize]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -84,6 +88,7 @@ namespace EmployeeExam.Controllers
         // POST: Departments/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("dep_id,dep_name,dep_abvr,Head")] Department department)
@@ -117,6 +122,7 @@ namespace EmployeeExam.Controllers
         }
 
         // GET: Departments/Delete/5
+        [Authorize]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -135,6 +141,7 @@ namespace EmployeeExam.Controllers
         }
 
         // POST: Departments/Delete/5
+        [Authorize]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)

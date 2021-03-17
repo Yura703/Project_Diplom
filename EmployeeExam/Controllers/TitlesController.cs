@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using EmployeeExam.Data;
 using EmployeeExam.Data.Entities;
+using Microsoft.AspNetCore.Authorization;
 
 namespace EmployeeExam.Controllers
 {
@@ -44,6 +45,7 @@ namespace EmployeeExam.Controllers
         }
 
         // GET: Titles/Create
+        [Authorize]
         public IActionResult Create()
         {
             return View();
@@ -52,6 +54,7 @@ namespace EmployeeExam.Controllers
         // POST: Titles/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("title_id,title_name,var_id,gr_security,interval")] Title title)
@@ -66,6 +69,7 @@ namespace EmployeeExam.Controllers
         }
 
         // GET: Titles/Edit/5
+        [Authorize]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -84,6 +88,7 @@ namespace EmployeeExam.Controllers
         // POST: Titles/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("title_id,title_name,var_id,gr_security,interval")] Title title)
@@ -117,6 +122,7 @@ namespace EmployeeExam.Controllers
         }
 
         // GET: Titles/Delete/5
+        [Authorize]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -135,6 +141,7 @@ namespace EmployeeExam.Controllers
         }
 
         // POST: Titles/Delete/5
+        [Authorize]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
