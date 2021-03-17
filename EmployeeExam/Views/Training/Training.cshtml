@@ -12,61 +12,61 @@
     }    
 </style>
 
+    <h4 class="text-primary">Вариант № @quest.Var Вопрос @quest.numberAnswer из @quest.allAnswer</h4>
 
-<h4 class="text-primary">Вариант № @quest.Var Вопрос @quest.numberAnswer из @quest.allAnswer</h4>
+    <h4 class="text-primary">
+        Ответов:
+        <span class="colorgreen">верных - @quest.posAnswer</span>;
+        <span class="colorred">не верных - @aa</span>
+    </h4>
 
-<h4 class="text-primary">
-    Ответов:
-    <span class="colorgreen">верных - @quest.posAnswer</span>;
-    <span class="colorred">не верных - @aa</span>
-</h4>
+    <hr />
+    <div id="_answer"></div>
+    <em><div id="reference" class="h4 text-info"></div></em>
+    <hr />
 
-<hr />
-<div id="_answer"></div>
-<em><div id="reference" class="h4 text-info"></div></em>
-<hr />
-
-<div class="h4">
-    <strong><label>@Html.DisplayFor(modelItem => quest.Quest)</label></strong>
-</div>
-
-<hr />
-<form asp-action="TrainingTwo" asp-controller="Training" method="get">
-    <div class="form-check h4">
-        <input class="form-check-input" type="radio" name="answer" id="Radios1" value="1" checked v-model="rad">
-        <label for="Radios1">
-            @Html.DisplayFor(odelItem => quest.Variant1)
-        </label>
+    <div class="h4">
+        <strong><label>@Html.DisplayFor(modelItem => quest.Quest)</label></strong>
     </div>
 
     <hr />
+    <form asp-action="TrainingTwo" asp-controller="Training" method="get">
+        <div class="form-check h4">
+            <input class="form-check-input" type="radio" name="answer" id="Radios1" value="1" checked v-model="rad">
+            <label for="Radios1">
+                @Html.DisplayFor(odelItem => quest.Variant1)
+            </label>
+        </div>
 
-    <div class="form-check h4">
-        <input class="form-check-input" type="radio" name="answer" id="Radios2" value="2" v-model="rad">
-        <label for="Radios2">
-            @Html.DisplayFor(odelItem => quest.Variant2)
-        </label>
-    </div>
+        <hr />
 
-    <hr />
+        <div class="form-check h4">
+            <input class="form-check-input" type="radio" name="answer" id="Radios2" value="2" v-model="rad">
+            <label for="Radios2">
+                @Html.DisplayFor(odelItem => quest.Variant2)
+            </label>
+        </div>
 
-    <div class="form-check h4">
-        <input class="form-check-input" type="radio" name="answer" id="Radios3" value="3" v-model="rad">
-        <label for="Radios3">
-            @Html.DisplayFor(odelItem => quest.Variant3)
-        </label>
-    </div>
+        <hr />
 
-    <input name="var" type="hidden" value=@quest.Var />
-    <input name="number" type="hidden" value=@quest.numberAnswer />
-    <input name="posAnswer" type="hidden" value=@quest.posAnswer />
-    <input name="allAnswer" type="hidden" value=@quest.allAnswer />
-    <input name="questAnswer" type="hidden" value=@quest.Answer />
-    <button type="button" class="btn btn-outline-info" id="button">Проверить</button>
-    <button type="submit" class="btn btn-outline-primary">Продолжить</button>
-</form>
+        <div class="form-check h4">
+            <input class="form-check-input" type="radio" name="answer" id="Radios3" value="3" v-model="rad">
+            <label for="Radios3">
+                @Html.DisplayFor(odelItem => quest.Variant3)
+            </label>
+        </div>
 
-<script>
+        <input name="var" type="hidden" value=@quest.Var />
+        <input name="number" type="hidden" value=@quest.numberAnswer />
+        <input name="posAnswer" type="hidden" value=@quest.posAnswer />
+        <input name="allAnswer" type="hidden" value=@quest.allAnswer />
+        <input name="questAnswer" type="hidden" value=@quest.Answer />
+        <button type="button" class="btn btn-outline-info" id="button">Проверить</button>
+        <button type="submit" class="btn btn-outline-primary">Продолжить</button>
+    </form>
+
+    
+    <script>
         let btn = document.querySelector("#button");
         var rad = document.getElementsByName('answer');
 
@@ -91,6 +91,6 @@
                 document.querySelector("#_answer").innerHTML = "Неверный ответ";
             }
         })
-</script>
+    </script>
 
 

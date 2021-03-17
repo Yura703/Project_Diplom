@@ -24,17 +24,18 @@
             background: #b0e0e6; /* Цвет фона */
         }
         .img-fluid {
-            background: url(image/17973908.jpg);
+            background: @if (ViewData["background"] == null) {<text> url(/image/13.jpg); </text>} else { <text>url( @ViewData["background"] ); </text> }
             background-repeat: no-repeat;
             background-size: cover;
+            opacity: 0.8;
         }
     </style>
     <script src="https://unpkg.com/vue"></script>
 
 </head>
 <body class="img-fluid">
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+    <header class="bg-primary">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom box-shadow mb-3">
             <div class="container">
 
                 @*<button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
@@ -47,14 +48,8 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Test" asp-action="Index">Обучение</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Training" asp-action="Index">Обучение</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Training" asp-action="Index">Обучен</a>
-                        </li>
-                        @*<li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Test" asp-action="Exam">Экзамен</a>
-                            </li>*@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Exam" asp-action="Index">Экзамен</a>
                         </li>
@@ -100,9 +95,9 @@
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
+    <footer class="border-top footer text-muted bg-primary">
         <div class="container">
-            &copy; 2021 - EmployeeExam - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            &copy; 2021 - Тест ОТ - <a href="mailto:lyurik@tut.by">Лапицкий Ю.Г.</a>
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>

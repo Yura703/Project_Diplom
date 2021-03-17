@@ -19,7 +19,7 @@ namespace EmployeeExam.Data.Entities
 
         [Required]
         [Display(Name = "Табельный номер")]
-        [StringLength(4, MinimumLength = 4)]
+        //[StringLength(4, MinimumLength = 4)]
         [Range(0001, 9999, ErrorMessage = "Недопустимый табельный номер")]
         public int Tabel_id { get; set; }
 
