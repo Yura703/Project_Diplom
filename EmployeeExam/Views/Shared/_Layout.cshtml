@@ -27,14 +27,25 @@
             background: @if (ViewData["background"] == null) {<text> url(/image/13.jpg); </text>} else { <text>url( @ViewData["background"] ); </text> }
             background-repeat: no-repeat;
             background-size: cover;
-            opacity: 0.8;
+            opacity: 0.9;
         }
+
+        .fone {
+            background: #87CEFA;
+        }        
+
+        .my-margins {
+            margin-left: 300px;
+            margin-right: 300px;
+        }
+       
+
     </style>
     <script src="https://unpkg.com/vue"></script>
 
 </head>
 <body class="img-fluid">
-    <header class="bg-primary">
+    <header class="fone">
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom box-shadow mb-3">
             <div class="container">
 
@@ -45,7 +56,7 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Документация</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Training" asp-action="Index">Обучение</a>
@@ -78,7 +89,7 @@
                                     <li class="divider"></li>
                                 </ul>
                             </li>
-                        }
+                         }
                         </ul>
                     <partial name="_LoginPartial" />
                 </div>
@@ -98,7 +109,7 @@
         </main>
     </div>
 
-    <footer class="border-top footer text-muted bg-primary">
+    <footer class="border-top footer text-muted fone">
         <div class="container">
             &copy; 2021 - Тест ОТ - <a href="mailto:lyurik@tut.by">Лапицкий Ю.Г.</a>
         </div>

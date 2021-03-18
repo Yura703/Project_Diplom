@@ -1,15 +1,26 @@
 ﻿@model EmployeeExam.Data.Entities.Employee
 
-<form asp-action="Exam" asp-controller="Exam" method="get">
-    <div class="input-group mb-3">
-        <input name="Tabel_id" asp-for="Tabel_id" class="form-control col-3" placeholder="Введите табельный номер" aria-label="Табельный номер" aria-describedby="basic-addon2" width="100">
-        <span asp-validation-for="Tabel_id" class="text-danger"></span>
-        <div class="input-group-append">
-            <button class="btn btn-outline-secondary" type="submit" id="button">Начать экзамен</button>
-        </div>
-    </div>
-</form>
+   
+        <div class="block">
+            <div class="text-center">
+                <h1 class="text-primary"> <em>Для начала экзамена введите табельный номер и нажмите кнопку <strong>"Начать экзамен"</strong></em></h1>
+            </div>
+            <form asp-action="Exam" asp-controller="Exam" method="get">
+                <span asp-validation-for="Tabel_id" class="text-danger"></span>
+                    <div class="my-margins">
+                        <div class="input-group mb-3">
+                            <input name="Tabel_id" asp-for="Tabel_id" class="form-control" placeholder="Введите табельный номер" aria-label="Табельный номер" aria-describedby="basic-addon2" width="100">
 
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
+                            <div class="input-group-append">
+                                <button class="btn btn-outline-secondary" type="submit" id="button">Начать экзамен</button>
+                            </div>
+                        </div>
+                    </div>
+            </form>
+        </div>
+
+       
+
+    @section Scripts {
+        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    }
