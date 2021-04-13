@@ -108,7 +108,7 @@ namespace EmployeeExam.Controllers
             employee.Date = DateTime.Today;
             employee.need_print = true;
             _context.Update(employee);             
-            await _context.SaveChangesAsync();
+            _context.SaveChangesAsync();
         }
 
         public async void UpdateNeg(int Tabel_id, int NumTest)
@@ -119,7 +119,7 @@ namespace EmployeeExam.Controllers
             storage.Tests_id = NumTest;
             storage.Data_Quest = DateTime.Today;
             _context.Add(storage);
-            await _context.SaveChangesAsync();
+            _context.SaveChangesAsync();
         }
 
     }
